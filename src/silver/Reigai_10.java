@@ -3,7 +3,7 @@ package silver;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class reigai10 {
+public class Reigai_10 {
 	public static void main(String[] args) {
 		// 従来の書き方
 //		FileInputStream is = null;
