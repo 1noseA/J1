@@ -1,5 +1,5 @@
 package com.test;
 
 public enum Type {
-	A, B, C
+	A, B, C, D
 }
