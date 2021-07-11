@@ -1,6 +1,7 @@
 package j20210630;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Sample {
@@ -38,10 +39,19 @@ public class Sample {
 		int i = b.getValue();
 	}
 
-	private static void printAll(List list) {
+	private static void printAll(List<Integer> list) {
 		// 拡張for文
-		for (Object obj : list) {
-			Integer i = (Integer) obj;
+//		for (Object obj : list) {
+//			Integer i = (Integer) obj;
+//			System.out.println(i);
+//		}
+
+		// 汎用リモコン取り出せる
+		Iterator<Integer> ite = list.iterator();
+		// 取り出すべき要素があるかどうか確認
+		while(ite.hasNext()) {
+			// あったら取り出す
+			int i = ite.next();
 			System.out.println(i);
 		}
 	}
