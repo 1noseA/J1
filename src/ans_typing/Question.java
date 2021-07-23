@@ -4,17 +4,18 @@ package ans_typing;
 public class Question {
 	private String word;
 	private int failCount = 0;
+	private boolean clear;
 
 	public Question(String word) {
 		this.word = word;
 	}
 
 	public boolean test(String answer) {
-		boolean result = word.equals(answer);
-		if (result == false) {
+		this.clear = word.equals(answer);
+		if (this.clear == false) {
 			failCount++;
 		}
-		return result;
+		return this.clear;
 	}
 
 	public String getWord() {
@@ -23,5 +24,9 @@ public class Question {
 
 	public int getFailCount() {
 		return failCount;
+	}
+
+	public boolean isClear() {
+		return this.clear;
 	}
 }
