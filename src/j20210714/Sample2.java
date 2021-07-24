@@ -1,6 +1,8 @@
 package j20210714;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 
 public class Sample2 {
@@ -35,12 +37,23 @@ public class Sample2 {
 		// 上記を1行にしたもの（よく使われる）
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+		// FileWriter fw = new FileWriter("sample.txt");
+		// 下記のようにすると上書きではなく追記になる
+		FileWriter fw = new FileWriter("sample.txt", true);
+		BufferedWriter out = new BufferedWriter(fw);
+
 		// try-with-resources(自動でクローズしてくれる)
-		try (br) {
+		try (br; out) {
 			String line = null;
 			while((line = br.readLine()).contentEquals("exit") == false) {
-				System.out.println(line);
+				// System.out.println(line);
+				// 書き出し
+				out.write(line);
+				// 改行が入る
+				out.newLine();
 			}
+			// バッファーに溜まったものを流す
+			out.flush();
 		}
 		// br.close();
 	}
