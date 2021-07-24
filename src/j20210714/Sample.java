@@ -1,6 +1,7 @@
 package j20210714;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 
 public class Sample {
@@ -58,12 +59,27 @@ public class Sample {
 	}
 
 	private static void printAll(File dir, String indent) {
-		File[] files = dir.listFiles();
+		File[] files = dir.listFiles(new JavaFileFilter());
 		for (File file : files) {
 			System.out.println(indent + file.getName());
 			if (file.isDirectory()) {
 				printAll(file, indent + " ");
 			}
+		}
+	}
+
+	// インナークラス
+	private static class JavaFileFilter implements FileFilter {
+		@Override
+		public boolean accept(File file) {
+			if (file.isDirectory()) {
+				return true;
+			}
+			// 拡張子が".java"のものだけ絞られる
+			if (file.getName().endsWith(".java")) {
+				return true;
+			}
+			return false;
 		}
 	}
 }
