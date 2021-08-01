@@ -20,6 +20,22 @@ public class Receipt {
 //		this.price = price;
 //	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Money getPrice() {
+		return price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
 	// インナークラス
 	public static class ReceiptBuilder {
 		private Date date;
