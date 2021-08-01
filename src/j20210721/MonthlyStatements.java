@@ -41,7 +41,6 @@ public class MonthlyStatements {
 	public void add(Receipt receipt) {
 		// 日付を取り出してその結果がどうか
 		Date target = receipt.getDate();
-		// 以下の処理はReceiptがやった方がいいかも(その月に該当するかどうかをチェックする)
 		if ((target.before(start) || target.after(end)) == false) {
 			// 再帰関連でChain of Responsibilityではなくなった
 			this.list.add(receipt);
