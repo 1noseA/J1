@@ -72,7 +72,10 @@ public class Receipt {
 			Receipt instance = new Receipt();
 			instance.date = this.date;
 			instance.name = this.name;
-			instance.price = this.price;
+			// instance.price = this.price;
+			// コピーコンストラクタを経由して新しいインスタンスの参照が入る
+			instance.price = new Money(this.price);
+
 			instance.category = this.category;
 			return instance;
 		}

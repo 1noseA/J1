@@ -11,6 +11,12 @@ public final class Money {
 		this.amount = amount;
 	}
 
+	// コピーコンストラクタ
+	public Money(Money old) {
+		// これで中身だけコピーされた新しいインスタンスを作れる(amountがプリミティブで(final))
+		this.amount = old.amount;
+	}
+
 	public int getAmount() {
 		return amount;
 	}
