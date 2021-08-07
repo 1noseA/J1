@@ -1,6 +1,7 @@
 package j20210804;
 
-// public class Item implements Comparable<Item> {
+import java.util.Comparator;
+
 public class Item {
 	private String name;
 	private int price;
@@ -24,24 +25,28 @@ public class Item {
 		return "Item [name=" + name + ", price=" + price + "]";
 	}
 
-	// 名前順に並び替えてくれる
-//	@Override
-//	public int compareTo(Item o) {
-//		return this.name.compareTo(o.name);
-//	}
+	// クラスが乱立しないようにまとめる（結局Itemしか使わない）
+	// compareは比較しか使わないので他のクラスでは使わない
+	public static class ItemPriceComparator implements Comparator<Item> {
 
-	// price順に並び替える
-//	@Override
-//	public int compareTo(Item o) {
-//		if (this.price < o.price) {
-//			// 自分の方が前だったら負の値を
-//			return -1;
-//		}
-//		if (o.price < this.price) {
-//			// 自分の方が負の値だったら正の値を
-//			return 1;
-//		}
-//		// 一緒だったら0
-//		return 0;
-//	}
+		// priceで比較したい場合
+		@Override
+		public int compare(Item a, Item b) {
+			if (a.getPrice() < b.getPrice()) {
+				return -1;
+			}
+			if (b.getPrice() < a.getPrice()) {
+				return 1;
+			}
+			return 0;
+		}
+	}
+
+	public static class ItemNameComparator implements Comparator<Item> {
+		// nameで比較したい場合
+		@Override
+		public int compare(Item a, Item b) {
+			return a.name.compareTo(b.name);
+		}
+	}
 }
