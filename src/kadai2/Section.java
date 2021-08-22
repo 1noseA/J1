@@ -10,4 +10,8 @@ public class Section {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public void printName(String name) {
+		System.out.println("セクション名は、" + name + "です");
+	}
 }
