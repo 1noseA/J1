@@ -16,5 +16,8 @@ public class Exercise3 {
 		item1.printItemInfo();
 		item2.printItemInfo();
 		item3.printItemInfo();
+
+		int result = item1.getPrice() + item2.getPrice() + item3.getPrice();
+		System.out.println("合計価格は、" + result + "円です");
 	}
 }
